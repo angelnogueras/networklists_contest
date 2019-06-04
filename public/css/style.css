@@ -1,0 +1,57 @@
+body {
+  font-family: 'Avenir';
+  background-color: black;
+}
+
+.container {
+  background-image: url("/img/960-x-480-Mobile-DDoS-Code-ONLY-v2.png");
+  padding: 20px;
+  font-size: 23px;
+  /*min-height: 480px;*/
+  min-height: 440px;
+}
+.contentA {
+  color: white;
+  padding: 55px 30px;
+  float: left;
+  width: 65%;
+}
+.contentB {
+  margin-left: 20px;
+}
+
+#content_ip, #content_geo {
+  border: 1px solid gray;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+#content_ip, #content_geo { 
+  height: 32px;
+}
+
+button {
+  border-radius: 25px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  font-weigth: 900;
+  color: white;
+  cursor: pointer;
+}
+#btn_start, .btn_start_active {
+  background-color: #73AD21;
+}
+#btn_stop, .btn_stop_active {
+  background-color: #AD2321;
+}
+button:disabled, button[disabled] {
+  background-color: #ccc !important;
+}
+.hidden {
+  /*display: none;*/
+  visibility: hidden;
+}
+.logo {
+  position: relative;
+  margin-left: 40%;
