@@ -35,6 +35,10 @@
       console.log('Already stopped')
       return
     }
+    stopIt()
+  })
+
+  const stopIt = () => {
     started = false
     clearInterval(interIP)
     clearInterval(interGEO)
@@ -42,7 +46,7 @@
     btnStart.disabled = false
     btnStop.disabled = true
     chiquito.style.visibility = 'hidden'
-  })
+  }
 
   const getNetworkListIp = () => {
     fetch('/nl_ip').then(res=>res.json())
@@ -51,6 +55,10 @@
         divIP.innerHTML = elems
         if (elems.length > 0) {
           clearInterval(interIP)
+          interIP = null
+          if (!interGEO) {
+            stopIt()
+          }
         }
       })
       .catch(error => console.error(error))
@@ -62,6 +70,10 @@
         divGEO.innerHTML = elems
         if (elems.length > 0) {
           clearInterval(interGEO)
+          interGEO = null
+          if (!interIP) {
+            stopIt()
+          }
         }
       })
       .catch(error => console.error(error))
