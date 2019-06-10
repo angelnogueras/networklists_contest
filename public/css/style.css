@@ -25,7 +25,7 @@ body {
   padding: 5px 10px;
   margin-bottom: 20px;
 }
-#content_ip, #content_geo { 
+#content_ip, #content_geo {
   height: 32px;
 }
 
@@ -52,6 +52,12 @@ button:disabled, button[disabled] {
   /*display: none;*/
   visibility: hidden;
 }
-.logo {
-  position: relative;
-  margin-left: 40%;
+footer {
+  margin-top: 30px;
+  text-align: right;
+}
+.clock {
+  color: white;
+  font-size: 1.6em;
+  margin-left: 30px;
+}
