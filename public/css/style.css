@@ -3,13 +3,39 @@ body {
   background-color: black;
 }
 
+.background-image {
+  background-image: url("/img/960-x-480-Mobile-DDoS-Code-ONLY-v2.png");
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+.container {
+  top: 10px;
+  left: 0;
+  right: 0;
+  position: fixed;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  z-index: 2;
+  font-size: 23px;
+}
+/*
 .container {
   background-image: url("/img/960-x-480-Mobile-DDoS-Code-ONLY-v2.png");
   padding: 20px;
   font-size: 23px;
-  /*min-height: 480px;*/
+  min-height: 480px;
   min-height: 440px;
 }
+*/
 .contentA {
   color: white;
   padding: 55px 30px;
@@ -35,7 +61,7 @@ button {
   height: 50px;
   line-height: 50px;
   font-size: 18px;
-  font-weigth: 900;
+  font-weight: 900;
   color: white;
   cursor: pointer;
 }
@@ -51,6 +77,15 @@ button:disabled, button[disabled] {
 .hidden {
   /*display: none;*/
   visibility: hidden;
+}
+.results {
+  margin-top: 30px;
+  margin-left: 60px;
+  color: yellow;
+  /*background-color: rgb(0,0,0,0.6);*/
+  text-align: center;
+  width: 40%;
+  padding: 10px;
 }
 footer {
   margin-top: 30px;

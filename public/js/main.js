@@ -4,11 +4,15 @@
   let interGEO
   let started = false
 
+  const REQ_FREQ = 10 // Time in seconds between update requests
   const divIP = document.getElementById('content_ip')
   const divGEO = document.getElementById('content_geo')
   const btnStart = document.getElementById('btn_start')
   const btnStop = document.getElementById('btn_stop')
   const chiquito = document.getElementById('chiquito')
+  const chronoElem = document.getElementById('chrono')
+  const resIP = document.getElementById('resultsIP')
+  const resGEO = document.getElementById('resultsGEO')
 
   btnStart.addEventListener('click', (evt) => {
     evt.preventDefault()
@@ -17,16 +21,20 @@
       return
     }
     started = true
+    chronoStart()
+    getNetworkListIp()
+    getNetworkListGeo()
     interIP = setInterval( ()=> {
       getNetworkListIp()
-    }, 10 * 1000 )
+    }, REQ_FREQ * 1000 )
     interGEO = setInterval( ()=> {
       getNetworkListGeo()
-    }, 10 * 1000 )
-    chronoStart()
+    }, REQ_FREQ * 1000 )
     btnStart.disabled = true
     btnStop.disabled = false
     chiquito.style.visibility = 'visible'
+    resIP.innerHTML = ''
+    resGEO.innerHTML = ''
   })
 
   btnStop.addEventListener('click', (evt) => {
@@ -55,6 +63,7 @@
         divIP.innerHTML = elems
         if (elems.length > 0) {
           clearInterval(interIP)
+          resIP.innerHTML = `IP Network List updated in ${chronoElem.innerHTML}`
           interIP = null
           if (!interGEO) {
             stopIt()
@@ -70,6 +79,7 @@
         divGEO.innerHTML = elems
         if (elems.length > 0) {
           clearInterval(interGEO)
+          resGEO.innerHTML = `GEO Network List updated in ${chronoElem.innerHTML}`
           interGEO = null
           if (!interIP) {
             stopIt()
@@ -80,7 +90,6 @@
   }
 
   // Chronometer
-  const chronoElem = document.getElementById('chrono')
 
   let startTime = 0
   let start = 0
