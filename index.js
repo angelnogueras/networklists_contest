@@ -46,13 +46,20 @@ const call_nl = (netlist_name, callback) => {
   })
 
   eg.send( (error, response, body) => {
-    // TODO: Error handling
-    let res = []
-    const data = JSON.parse(body)
-    if (data.list) {
-      res = data.list
+    // Error handling to avoid connection issues
+    try {
+      let res = []
+      const data = JSON.parse(body)
+      if (data.list) {
+        res = data.list
+      }
+      console.log(res)
+      callback(res)
+    } 
+    catch (error) {
+      console.error(error)
+      callback([])
     }
-    callback(res)
   })
 }
 
