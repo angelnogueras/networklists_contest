@@ -13,6 +13,7 @@
   const chronoElem = document.getElementById('chrono')
   const resIP = document.getElementById('resultsIP')
   const resGEO = document.getElementById('resultsGEO')
+  const aud_mi = document.getElementById('aud_mi')
 
   btnStart.addEventListener('click', (evt) => {
     evt.preventDefault()
@@ -22,6 +23,7 @@
     }
     started = true
     chronoStart()
+    audioStart()
     getNetworkListIp()
     getNetworkListGeo()
     interIP = setInterval( ()=> {
@@ -51,6 +53,7 @@
     clearInterval(interIP)
     clearInterval(interGEO)
     chronoStop()
+    audioStop()
     btnStart.disabled = false
     btnStop.disabled = true
     chiquito.style.visibility = 'hidden'
@@ -143,6 +146,13 @@
 
   const chronoStop = () => {
   	clearTimeout(timerID)
+  }
+
+  const audioStart = () => {
+    aud_mi.play()
+  }
+  const audioStop = () => {
+    aud_mi.pause()
   }
 //-->
 
